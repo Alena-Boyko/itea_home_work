@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Attr</title>
+    <style>
+        /* a[target] {
+            background-color: yellow;
+        }
+        a[target='_blank'] { 
+            background-color: red;
+        } */
+    </style>
+</head>
+<body>
+    <a href="#" target="_top">w3schools.com</a>
+    <a href="http://www.google.com" target="_blank">google.com</a>
+    <a href="http://www.wikipedia.org" target="_self">wikipedia.org</a>
+    <a href="#">Someting</a>
+
+    <script>
+    
+        let firstLink = document.querySelector('a');
+        firstLink.style = 'background-color: yellow';
+        let secondLink = firstLink.nextElementSibling;
+        secondLink.style = 'background-color: red';
+        let thirdLink = secondLink.nextElementSibling;
+        thirdLink.style = 'background-color: yellow';
+
+    </script>
+</body>
+</html>
