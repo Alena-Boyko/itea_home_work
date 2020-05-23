@@ -1,0 +1,57 @@
+<!-- 
+    Запросите у пользователя ввести какую-то фразу. 
+    Отобразите каждое отдельное слово в виде списка ul li. 
+    Также отобразите первое слово UPPERCASE, а последние 2 с маленькой. 
+    Найдите все буквы "а" их количество в модальное окно. 
+    Пришла ВЕСНА В МОИ КРАЯ
+ -->
+ 
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+</head>
+<body>
+    <input type="text" >
+
+    <script>
+
+        let userData = prompt('Please, enter your message', '');
+        let newList = '<ul id="ulList"></ul>';
+        console.log(newList);
+        document.body.insertAdjacentHTML('afterbegin', newList);
+        let newUl = document.getElementById('ulList');
+        let mas = userData.split(' ');
+        
+        if (userData)  {
+
+            for (let i = 0; i < mas.length; i++) {
+                let newLi = document.createElement('li');
+                let liElements = newUl.appendChild(newLi);
+
+                for (let k = 0; k < mas.length; k++) {
+                    liElements.innerHTML = mas[i];
+                }
+            }
+            
+            let allLiElements = document.getElementsByTagName('li');
+            let first = allLiElements[0].innerHTML.toUpperCase();
+            allLiElements[0].innerHTML = first;
+
+            for (let i = 1; i < allLiElements.length; i++) {
+                let next = allLiElements[i].innerHTML.toLowerCase();
+                allLiElements[i].innerHTML = next;
+            }
+
+            let lowerAll = userData.toLowerCase();
+            let count = (lowerAll.match(/а/g)||[]).length; // работает для русского текста,
+
+            let a = document.querySelector('input');
+            a.setAttribute('value', count);
+        }
+
+    </script>
+
+</body>
+</html>
