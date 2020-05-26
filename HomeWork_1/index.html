@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <div class='wrapper'>
+        <ul id='list'>
+            <ol>Выбрать первый элемент</ol>
+            <ol>Выбрать последний элемент</ol>
+            <ol>Выбрать следующий элемент</ol>
+            <ol>Выбрать предыдущий элемент</ol>
+            <ol>Добавить элемент</ol>
+            <ol>Удалить элемент</ol>
+            <ol>Добавить в начало</ol>
+        </ul>
+
+        <div class='button_box'>
+            <input type="button" name="color" onclick="firstElement()" value="Выбрать первый элемент">
+            <input type="button" name="color" onclick="lastElement()" value="Выбрать последний элемент">
+            <input type="button" name="color" onclick="nextElement()" value="Выбрать следующий элемент">
+            <input type="button" name="color" onclick="prevElement()" value="Выбрать предыдущий элемент">
+            <input type="button" name="color" onclick="addElement()" value="Добавить элемент">
+            <input type="button" name="color" onclick="deleteElement()" value="Удалить элемент">
+            <input type="button" name="color" onclick="addToStart()"value="Добавить в начало">
+        </div>
+
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>
