@@ -1,0 +1,32 @@
+<!-- Напишите регулярные выражения, которые будут выбирать 
+    индекс - 55535 - 5 numbers
+    ip адресс, пример 255.255.255.255
+    цены в долларах - $0.84, $2.84, $4
+    дата в виде - 30/12/2016 - день, месяц, год
+ -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+ 	<meta charset="UTF-8">
+ 	<title>Document</title>
+ </head>
+ <body>
+
+   <script type="text/javascript">
+      let indexExample = 'Помещения для аренды. ул. Крещатик, 22, г. Киев, 01001, дата в виде - 30/12/2016 Украина, 55535, ip адресс, пример 255.255.255.255, цены в долларах - $555.84, $5,555.84, $2.84, $4';
+      let index = /\b\d{5}\b/g;
+         console.log(indexExample.match(index));
+         console.log(index.exec(indexExample));
+         document.write('<h3>Index</h3>' + indexExample.match(index) + '<br>');
+      let idAdress = /(\b\d{3}\.\d{3}\.\d{3}\.\d{3}\b)/;
+         console.log(indexExample.match(idAdress));
+         document.write('<h3>idAdress</h3>' + indexExample.match(idAdress) + '<br>');
+      let pricesInDollars = /((\$[0-9,]{1,9})+(\.[0-9]{2})?)/g;
+         console.log(indexExample.match(pricesInDollars));
+         document.write('<h3>Prices In Dollars </h3>' + indexExample.match(pricesInDollars) + '<br>');
+      let data = /\b\d{1,2}\/\d{1,2}\/\d{4}\b/;
+         console.log(indexExample.match(data));
+         document.write('<h3>Data </h3>' + indexExample.match(data) + '<br>');
+ 	</script>
+ </body>
+ </html>
