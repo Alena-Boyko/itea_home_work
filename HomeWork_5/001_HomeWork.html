@@ -1,0 +1,68 @@
+<!--
+Создайте ссылку и див с текстом внутри, который изначально при загрузке страницы будет скрыт.
+При клике на ссылку див появляется, если повторно нажать ссылку див и текст должны пропасть.
+Также создайте кнопку, которая будет отменять выполнение обработчика клика по ссылке.
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div {
+            display: none;
+            background-color: aqua;
+            width: 60px;
+            height: 60px;
+        }
+
+        input {
+            background-color:blue;
+        }
+
+        a {
+            background-color:chartreuse;
+            width: 80px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <a href="#" id="toggle">Open Div</a>
+    <input id="removeclick" type="button" value="cancel click handler execution">
+    <div>Text</div>
+    
+    <script>
+        var divElem = document.querySelector('div');
+        var link = document.getElementById('toggle');
+        window.onload = function() {
+
+            link.addEventListener('click',  linkListener);
+                
+            function linkListener () {
+                openDiv('divElem', this);
+                return false;
+            }
+        
+            function openDiv() {
+
+                if(divElem.style.display == 'block') {
+                    divElem.style.display = 'none';
+                    toggle.innerHTML = 'Open Div';
+                } else {
+                    divElem.style.display = 'block';
+                    toggle.innerHTML = 'Close Div';
+                }
+            }
+
+            var removeClick = document.getElementById('removeclick');
+
+            removeClick.addEventListener('click', removeClickDiv);
+
+            function removeClickDiv () {
+                link.removeEventListener('click', linkListener)
+            }
+        }
+    </script>
+</body>
+</html>
