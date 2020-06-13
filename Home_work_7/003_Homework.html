@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Homework</title>
+  </head>
+  <body>
+    <script>
+      function HeadDoctor(cure) {
+        this.cure = cure;
+        this.showCure = function () {
+          document.write(" Этот доктор может лечить " + this.cure + "<br />");
+        };
+      }
+
+      function Doctor(walk, eat, drink) {
+        this.walk = walk;
+        this.eat = eat;
+        this.drink = drink;
+      }
+
+      Doctor.prototype = new HeadDoctor(" всех");
+      var doctor = new Doctor(40, "здоровую пищу", "воду");
+      doctor.showCure();
+      console.log(doctor);
+
+      function Dentist(walk, eat, drink, cure) {
+        this.walk = walk;
+        this.eat = eat;
+        this.drink = drink;
+        this.cure = cure;
+        this.showCure = function () {
+          document.write(" Dantist can " + this.cure + "<br />");
+        };
+      }
+
+      function Surgeon(walk, eat, drink, cure) {
+        this.walk = walk;
+        this.eat = eat;
+        this.drink = drink;
+        this.cure = cure;
+        // this.showCure = function () {
+        //   document.write(" Surgeon can " + this.cure + "<br />"); // из схемы я не совсем поняла как именно cure должно
+        //   //передаваться отдельной переменной или в функции самого
+        //   //объекта, поэтому сделала и так и так.
+        //   //Если раскоментировать, то выведеться собственное сообщение.
+        //   //А если так оставить, то данные будут подставлены в функцию
+        //   //родителя. Какработает в том или ином случае разобралась
+        //   //В дантисте все аналогично)
+        // };
+      }
+
+      Dentist.prototype = new Doctor();
+      var dentist = new Dentist(50, "овощи", "молоко", "treat teeth");
+      dentist.showCure();
+      console.log(dentist);
+
+      Surgeon.prototype = new Doctor();
+      var surgeon = new Surgeon(50, "творог", "молоко", "perform operations");
+      surgeon.showCure();
+      console.log(dentist);
+    </script>
+  </body>
+</html>

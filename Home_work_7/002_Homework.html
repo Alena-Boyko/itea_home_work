@@ -1,0 +1,58 @@
+<!-- Реализуйте последние 2 слайда в презентации с помощью пройденого на уроке материала -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Homework_Inheritance</title>
+  </head>
+  <body>
+    <script>
+      function Men(walk, drink, eat) {
+        this.walk = walk;
+        this.drink = drink;
+        this.eat = eat;
+        this.showInfo = function () {
+          document.write(
+            "Этот человек ест " +
+              this.eat +
+              " пьет " +
+              this.drink +
+              " передвигается со скоростью " +
+              this.walk +
+              "<br />"
+          );
+        };
+      }
+
+      function Doctor(walk, drink, eat, cure) {
+        this.walk = walk;
+        this.drink = drink;
+        this.eat = eat;
+        this.cure = cure;
+      }
+
+      function Soldier(walk, drink, eat, shoot) {
+        this.walk = walk;
+        this.drink = drink;
+        this.eat = eat;
+        this.shoot = shoot;
+        this.showElemSoldier = function () {
+          document.write("Солдат также носит " + this.shoot + "<br />");
+        };
+      }
+
+      Doctor.prototype = new Men();
+      Soldier.prototype = new Men();
+
+      var doctor = new Doctor(30, "молоко", "таблетки");
+      var soldier = new Soldier(50, "чай", "сухпаек", "ботинки");
+
+      doctor.showInfo();
+      soldier.showInfo();
+      soldier.showElemSoldier();
+
+      console.log(doctor);
+      console.log(soldier);
+    </script>
+  </body>
+</html>
